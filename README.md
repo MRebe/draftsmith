@@ -86,14 +86,14 @@ To use it without the plugin system, copy `skills/draftsmith/` into `~/.claude/s
 The skill loads on its own when a task involves writing prose. Its description covers both the
 drafting case and the revision case.
 
-To run it explicitly:
+To run the revision pass explicitly on something already written:
 
 ```
-/draftsmith
+/draftsmith-revise <file or path>
 ```
 
-Or ask for the revision pass in words, for example "rewrite this page description with
-draftsmith" or "run the revision pass over the release notes".
+Or ask for it in words, for example "rewrite this page description with draftsmith" or "run the
+revision pass over the release notes".
 
 ## What it does not do
 
