@@ -27,6 +27,25 @@ documentation and interface copy are a different register: the reader arrived wi
 question and wants to leave. A subtitle that sets a tone costs them attention and returns
 nothing.
 
+## Decide whether to write at all
+
+Before drafting, name the question the reader has at this point in the page. If you cannot name
+it, they do not have one, and text placed there is an interruption.
+
+Then choose the form. Prose is for reasoning: a rationale, a tradeoff, a warning with its cause.
+Most other content is a worse paragraph than it would be as something else. A set of values is a
+table. A sequence is a numbered list. A single fact is a label. A behaviour is a code sample.
+Rewriting a table as prose is the most common version of this mistake and the hardest to see,
+because the paragraph reads fine.
+
+A heading followed by one sentence usually means the heading was the content. Delete the
+sentence or delete the heading.
+
+**When the brief asks for text that should not exist**, leave it out and say so in one line:
+which slot was left empty and why. Do not fill it silently, and do not fill it because it was
+requested. An empty slot the reader never notices is a better outcome than a sentence they read
+and gain nothing from.
+
 ## The habits to remove
 
 **Imagery.** Any word doing metaphorical work in a description of a real mechanism. "A fresh

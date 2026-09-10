@@ -38,6 +38,12 @@ for the mechanism instead of the image, and precision usually costs words.
 
 ## What it covers
 
+A decision that comes before drafting: whether to write anything here, and in what form. Name
+the question the reader has at this point; if there is no question, text there is an
+interruption. Prose is for reasoning - a set of values is a table, a sequence is a numbered
+list, a single fact is a label. When the brief asks for text that should not exist, the skill
+says to leave the slot empty and report which one and why, rather than fill it.
+
 Nine drafting habits, each with the replacement: imagery, personification, the closing
 flourish, "X not Y" used for rhythm, lists of three padded from two, essayist connectives,
 emphatic intensifiers, the making-of opening, and headings restated as a first sentence.
