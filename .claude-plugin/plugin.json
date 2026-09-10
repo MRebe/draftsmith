@@ -1,0 +1,21 @@
+{
+  "name": "draftsmith",
+  "description": "Strips the rhetorical habits that make generated prose read as machine-written. Works on UI copy, documentation and slide text, in any language.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Mattia Rebesan",
+    "email": "mattiarebesan@gmail.com",
+    "url": "https://github.com/MRebe"
+  },
+  "homepage": "https://github.com/MRebe/draftsmith",
+  "repository": "https://github.com/MRebe/draftsmith",
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "documentation",
+    "ui-copy",
+    "technical-writing",
+    "style",
+    "multilingual"
+  ]
+}
