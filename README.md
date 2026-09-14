@@ -48,6 +48,12 @@ Nine drafting habits, each with the replacement: imagery, personification, the c
 flourish, "X not Y" used for rhythm, lists of three padded from two, essayist connectives,
 emphatic intensifiers, the making-of opening, and headings restated as a first sentence.
 
+A separate set of rules for microcopy - labels, buttons, column headers, menu items - where the
+failures differ from the ones in prose: use the ordinary word rather than the more interesting
+one, reuse the term the product already uses instead of coining a better one, keep capitalisation
+consistent, and treat available space as a hard limit. Microcopy is the one place the skill
+inverts its own preference for precision over length.
+
 A three-step revision pass to run over prose already drafted: a deletion test, a substitution
 test, and a frequency count with an explicit target.
 

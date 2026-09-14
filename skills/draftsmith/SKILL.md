@@ -97,6 +97,40 @@ boundary, a number, a warning. Otherwise leave it out.
 A heading with no subtitle reads as deliberate. A heading with a decorative subtitle reads as
 padded, and the padding is usually the first thing a reader notices.
 
+## Microcopy
+
+Labels, buttons, column headers, menu items, tab names, section titles. One to three words, and
+the ways they fail are not the ones above.
+
+**Use the obvious word.** The common failure in a short label is reaching for the less ordinary
+synonym: a page of design tokens titled "Foundations" rather than "Tokens", a delete button
+labelled "Discard". The ordinary word is the one the reader is already scanning for. Reserve the
+unusual word for when it is more precise, never for when it is more interesting.
+
+**Check what the product already calls it.** Before naming anything, search the codebase and the
+running interface for the existing term. One thing gets one name everywhere. An existing term
+beats a better term: renaming "Delete" to "Remove" on one screen costs the reader more than the
+improvement returns. If the existing term is genuinely wrong, change every occurrence in the
+same pass or leave it alone.
+
+**Capitalisation is a consistency decision, not a writing one.** Whatever the product uses,
+sentence case or title case, apply it to every label. Do not decide per string.
+
+**Buttons take the verb, headings take the noun.** A button is an action: "Save", "Export", "Add
+member". A heading or tab names a thing: "Members", "Exports". A nominalised button - "Saving",
+"Data export" - reads as a translated specification rather than an interface.
+
+**Space is a hard constraint here, and it inverts the rule.** In prose, precision beats brevity
+and corrections are often longer. In microcopy the opposite holds: a button has a width, a
+column header has a width, and a label that does not fit is a defect however precise it is. When
+it does not fit, change the word rather than truncate or abbreviate. "Export" instead of "Data
+export", never "Data exp.".
+
+**Match the language of the surrounding interface.** A label is written in the language the user
+sees, not the language of the code around it. An English string in an Italian interface is a
+defect even when every identifier in the file is English. This applies most often to validation
+and error messages, which tend to be left in the language the developer was thinking in.
+
 ## Revision pass
 
 Run this over prose already drafted, sentence by sentence. It matters more than the drafting
@@ -131,7 +165,8 @@ Two related points:
 ## What this does not ask for
 
 **Not "write less".** Many corrections here are longer than what they replace. Precision costs
-words; decoration is what gets cut.
+words; decoration is what gets cut. Microcopy is the exception: there space is a hard limit and
+brevity wins, as that section says.
 
 **Not "remove all contrast".** Ruling out a real alternative is content.
 
