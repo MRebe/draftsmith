@@ -1,6 +1,6 @@
 ---
 name: draftsmith
-description: Use when writing any prose a person will read - UI labels, headings, subtitles, empty states, error messages, README and other documentation, design notes, slide text, release notes - in any language. Also use as a revision pass over prose already drafted. Removes the rhetorical habits that make generated text read as machine-written. Not for code, commit messages, or conversational replies.
+description: Use when writing or revising any text a person will read, including text embedded in source files - UI labels, headings, subtitles, empty states, error and validation messages, tooltips, button text, i18n and translation files, component templates, README and other documentation, design notes, slide text, release notes - in any language. Building a component or page counts: the file being code does not exclude the strings inside it. Also use as a revision pass over text already drafted. Removes the rhetorical habits that make generated text read as machine-written. Out of scope: identifiers, code comments, log lines, commit messages, conversational replies.
 ---
 
 # Draftsmith
@@ -143,11 +143,18 @@ before deploying" beats "the script should be run prior to deployment".
 
 ## Scope
 
-Applies to: interface copy, documentation, design notes, slide text, release notes, error
-messages, email and report text.
+Applies to any text a reader sees, including text that lives inside source files: component
+templates, JSX and Vue markup, label, placeholder and aria attributes, i18n and translation
+files, validation and error messages shown to users, email templates, seeded database strings,
+documentation, design notes, slide text and release notes.
 
-Does not apply to: code, code comments that follow the surrounding convention, commit messages,
-conversational replies.
+**Building a component is not an exemption.** Most interface copy is written during a coding
+task, never as a separate request. A version of this skill that only fires when someone asks
+for copy never fires at the moment the copy is produced. If the file being edited contains a
+string a user will read, the string is in scope even though the file is code.
+
+Does not apply to: identifiers, code comments that follow the surrounding convention, log lines
+written for operators, commit messages, conversational replies.
 
 Explicitly persuasive copy - a landing page hero, a launch announcement - may want an image.
 The frequency check still applies: one per page, not one per paragraph.

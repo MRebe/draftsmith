@@ -105,9 +105,11 @@ cards: a line, never a shadow" forbids something a reader might otherwise do, an
 It does not make prose impersonal. "Run the script before deploying" is preferred over "the
 script should be run prior to deployment".
 
-It does not apply to code, code comments, commit messages, or conversational replies. For
-explicitly persuasive copy such as a landing page hero, the habit list relaxes but the frequency
-target still holds: one image per page, not one per paragraph.
+It does not apply to identifiers, code comments, log lines, commit messages, or conversational
+replies. Strings a user reads are in scope even when they live in a source file - a label in a
+component template is interface copy, not code. For explicitly persuasive copy such as a landing
+page hero, the habit list relaxes but the frequency target still holds: one image per page, not
+one per paragraph.
 
 ## Contributing
 
