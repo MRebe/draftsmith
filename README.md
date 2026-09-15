@@ -54,6 +54,11 @@ one, reuse the term the product already uses instead of coining a better one, ke
 consistent, and treat available space as a hard limit. Microcopy is the one place the skill
 inverts its own preference for precision over length.
 
+Rules for copy that reaches the screen through a key rather than being written in the template -
+i18n files, translation tables, properties files, SQL seed scripts. The format does not change
+what the string is, and a key named `subtitle` is not an obligation to produce a subtitle: when
+it has nothing to say, the skill reports that the key should not exist rather than filling it.
+
 A three-step revision pass to run over prose already drafted: a deletion test, a substitution
 test, and a frequency count with an explicit target.
 

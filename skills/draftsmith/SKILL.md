@@ -1,6 +1,6 @@
 ---
 name: draftsmith
-description: Use when writing or revising any text a person will read, including text embedded in source files - UI labels, headings, subtitles, empty states, error and validation messages, tooltips, button text, i18n and translation files, component templates, README and other documentation, design notes, slide text, release notes - in any language. Building a component or page counts: the file being code does not exclude the strings inside it. Also use as a revision pass over text already drafted. Removes the rhetorical habits that make generated text read as machine-written. Out of scope: identifiers, code comments, log lines, commit messages, conversational replies.
+description: Use when writing or revising any text a person will read, including text embedded in source files - UI labels, headings, subtitles, empty states, error and validation messages, tooltips, button text, i18n and translation files, component templates, README and other documentation, design notes, slide text, release notes - in any language. Building a component or page counts: the file being code does not exclude the strings inside it. Generating translation rows, i18n entries or SQL seed scripts for interface strings counts too. Also use as a revision pass over text already drafted. Removes the rhetorical habits that make generated text read as machine-written. Out of scope: identifiers, code comments, log lines, commit messages, conversational replies.
 ---
 
 # Draftsmith
@@ -130,6 +130,28 @@ export", never "Data exp.".
 sees, not the language of the code around it. An English string in an Italian interface is a
 defect even when every identifier in the file is English. This applies most often to validation
 and error messages, which tend to be left in the language the developer was thinking in.
+
+## Copy written through an indirection
+
+Interface text is often not written in the template. It is written in an i18n file, a
+translation table, a properties file or a SQL seed script, and reaches the screen through a key.
+The format does not change what the string is: a row a user will read is interface copy, and
+every rule above applies to it.
+
+**Write against the screen, not against the list.** A list of key-value pairs hides what decides
+the wording - the slot, its width, and what sits next to it. If you cannot picture where a
+string lands, open the template and find it before writing the value.
+
+**A key is not an obligation to produce a value.** In a list of pairs an empty value looks like
+an omission, so keys named subtitle, description, hint and helper get filled whether or not they
+have anything to say. These are the optional slots from the section above, reached through a
+different door. When one has nothing to say, do not invent a value: report that the key should
+not exist in the template. The decision to leave a slot empty belongs to the markup, so it has
+to go back there rather than be settled by writing a sentence.
+
+**Check consistency across the whole set, not row by row.** Terminology drift is invisible one
+row at a time and obvious when the keys are read together. Generate every language of a key in
+the same pass, and read the finished set looking for one thing named two ways.
 
 ## Revision pass
 
