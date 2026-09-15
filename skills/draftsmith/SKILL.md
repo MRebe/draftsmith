@@ -1,6 +1,6 @@
 ---
 name: draftsmith
-description: Use when writing or revising any text a person will read, including text embedded in source files - UI labels, headings, subtitles, empty states, error and validation messages, tooltips, button text, i18n and translation files, component templates, README and other documentation, design notes, slide text, release notes - in any language. Building a component or page counts: the file being code does not exclude the strings inside it. Generating translation rows, i18n entries or SQL seed scripts for interface strings counts too. Also use as a revision pass over text already drafted. Removes the rhetorical habits that make generated text read as machine-written. Out of scope: identifiers, code comments, log lines, commit messages, conversational replies.
+description: Use when writing or revising any text a person will read, including text embedded in source files - UI labels, headings, subtitles, empty states, error and validation messages, tooltips, button text, i18n and translation files, component templates, README and other documentation, design notes, slide text, release notes - in any language. Building a component or page counts: the file being code does not exclude the strings inside it. Generating translation rows, i18n entries or SQL seed scripts for interface strings counts too. Also use when an interface is shown as a screenshot or image and its text is being reviewed or reworked. Also use as a revision pass over text already drafted. Removes the rhetorical habits that make generated text read as machine-written. Out of scope: identifiers, code comments, log lines, commit messages, conversational replies.
 ---
 
 # Draftsmith
@@ -152,6 +152,30 @@ to go back there rather than be settled by writing a sentence.
 **Check consistency across the whole set, not row by row.** Terminology drift is invisible one
 row at a time and obvious when the keys are read together. Generate every language of a key in
 the same pass, and read the finished set looking for one thing named two ways.
+
+## Copy shown as a screenshot
+
+An interface is often handed over as an image rather than as source. During a rebuild the source
+may hold placeholders, so the screen is the only place the finished strings exist. The image is
+then the copy, and the audit runs on it.
+
+**List every string before judging any.** Read the screen in order and write the strings out:
+heading, subtitle, field labels, helper lines, button text, empty state, counters. Judging while
+reading finds the sentence that sounds wrong and misses the one that should not be there, which
+is the more common defect.
+
+**Judge the slot, not the sentence.** For each string, name what the reader gains at that point.
+A subtitle under an unambiguous heading, a helper line restating its label, a description
+repeating the button below it - these fail that test and are deletions, not rewrites. Report the
+deletions as deletions and leave the strings that work untouched.
+
+**Locate each change before proposing it.** A screenshot carries no file and no key. Find where
+the string comes from - template, i18n file, translation table - and name it, because a
+correction nobody can locate cannot be applied.
+
+**Read the whole screen for terminology.** One thing named two ways across a heading, a button
+and a column title is visible in the image and invisible in the source, where the two names sit
+in different files.
 
 ## Revision pass
 

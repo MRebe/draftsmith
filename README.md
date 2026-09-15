@@ -59,6 +59,11 @@ i18n files, translation tables, properties files, SQL seed scripts. The format d
 what the string is, and a key named `subtitle` is not an obligation to produce a subtitle: when
 it has nothing to say, the skill reports that the key should not exist rather than filling it.
 
+A procedure for auditing an interface handed over as a screenshot, which is common during a
+rebuild when the source still holds placeholders. List every string before judging any, judge
+the slot rather than the sentence, and locate each proposed change in a file or a key, since a
+correction nobody can find cannot be applied.
+
 A three-step revision pass to run over prose already drafted: a deletion test, a substitution
 test, and a frequency count with an explicit target.
 
