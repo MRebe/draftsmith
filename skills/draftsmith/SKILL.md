@@ -1,6 +1,6 @@
 ---
 name: draftsmith
-description: Use when writing or revising any text a person will read, including text embedded in source files - UI labels, headings, subtitles, empty states, error and validation messages, tooltips, button text, i18n and translation files, component templates, README and other documentation, design notes, slide text, release notes - in any language. Building a component or page counts: the file being code does not exclude the strings inside it. Generating translation rows, i18n entries or SQL seed scripts for interface strings counts too. Also use when an interface is shown as a screenshot or image and its text is being reviewed or reworked. Also use as a revision pass over text already drafted. Removes the rhetorical habits that make generated text read as machine-written. Out of scope: identifiers, code comments, log lines, commit messages, conversational replies.
+description: Use when writing, editing, inserting or reviewing text a person will read - slides and decks (.pptx), documents (.docx, PDF, README), emails, release notes, UI copy (labels, error messages, i18n files, templates, screenshots) - in any language. Applies when the text is supplied by someone else to paste in, when it goes through code or a script (python-pptx, python-docx, openpyxl, HTML, JSX, SQL seeds), when the task looks like file manipulation, and when asked to check or review a deck or document. Out of scope: identifiers, code comments, log lines, commit messages, conversational replies.
 ---
 
 # Draftsmith

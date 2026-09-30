@@ -4,8 +4,8 @@ A Claude Code skill that removes the rhetorical habits which make generated pros
 machine-written.
 
 It applies to text a person reads: interface labels, headings, subtitles, empty states, error
-messages, README files, design notes, slide text, release notes. It works in any output
-language, and it treats cross-language flourishes as a separate failure mode.
+messages, README files, design notes, slides and decks, emails, release notes. It works in any
+output language, and it treats cross-language flourishes as a separate failure mode.
 
 ## The problem
 
@@ -111,6 +111,62 @@ To run the revision pass explicitly on something already written:
 Or ask for it in words, for example "rewrite this page description with draftsmith" or "run the
 revision pass over the release notes".
 
+### Activation hint
+
+A skill cannot force Claude to use it, and a request such as "add this slide to the deck" reads
+as file manipulation rather than writing. The plugin therefore ships a `UserPromptSubmit` hook.
+When a prompt contains one of these words, it adds one line to Claude's context asking it to
+invoke the skill:
+
+```
+pptx  ppt  docx  deck  slide  presentazione  presentation  email  e-mail  readme
+release note  note di rilascio  documento  i18n  microcopy  ui copy  copywriting
+```
+
+Matching is case-insensitive, on whole words, and only on the prompt text. Generic words such as
+"text", "copy" and "document" are left out because they appear in most coding prompts. A file
+name such as `presentation.py` still matches. The line asks Claude to invoke the skill only if
+the task writes, inserts or reviews text for people, so a false match costs one line of context.
+
+To turn the hook off, set `DRAFTSMITH_HINT` to `off` in your shell or in the `env` block of
+`settings.json`:
+
+```json
+{
+  "env": {
+    "DRAFTSMITH_HINT": "off"
+  }
+}
+```
+
+The hook is a POSIX `sh` script. On Windows it runs through Git Bash. Without Git Bash it fails
+without blocking the prompt, and the skill still activates from its description.
+
+## With many skills installed
+
+Claude chooses a skill from a listing of names and descriptions loaded into its context. The
+listing has a budget of 1% of the model's context window. When the installed skills exceed it,
+Claude Code removes descriptions starting from the skills you invoke least, and keeps only their
+names. A skill you have just installed has never been invoked, so its description is among the
+first to go, and without it Claude has nothing to match your request against.
+
+To check, run `/context` and look at the Skills row, which reports the listing size after the
+budget is applied. `/doctor` estimates the listing's cost and names its biggest contributors, and
+`/skill-doctor` finds skills you never use.
+
+To make room:
+
+| Option | Where | Effect |
+| :- | :- | :- |
+| `skillListingBudgetFraction` | `settings.json` | Budget as a fraction of the context window, for example `0.02` for 2% |
+| `SLASH_COMMAND_TOOL_CHAR_BUDGET` | `env` block of `settings.json`, or shell | Budget as a fixed number of characters |
+| `skillListingMaxDescChars` | `settings.json` | Characters kept per skill description, 1,536 by default. Lowering it shortens every entry |
+| `skillOverrides` with `"name-only"` | `settings.json` | Lists one skill without its description. Applies to personal and project skills only |
+| `/plugin` | Claude Code | Disables plugins you do not use. Plugin skills are not affected by `skillOverrides`, so this is the way to remove them from the listing |
+
+Setting names and behaviour are from the
+[skills documentation](https://code.claude.com/docs/en/skills.md#skill-descriptions-are-cut-short).
+
 ## What it does not do
 
 It does not shorten text. Many of its corrections are longer.
@@ -133,6 +189,21 @@ The habit list came from a small set of real cases. The useful contribution is m
 open an issue with a piece of generated prose that reads wrong to you, the language it was in,
 and where it appeared. Cases that the current nine habits fail to catch are the most valuable,
 because they show where the list is incomplete.
+
+Cases where the skill did not activate when it should have are useful too. The `evals/`
+directory holds activation tests for
+[`claude plugin eval`](https://code.claude.com/docs/en/plugin-evals.md), which needs Claude Code
+v2.1.269 or later. Each case checks whether Claude invoked the skill for one prompt. Run them
+from the repository root:
+
+```
+claude plugin eval . --tag activation --ablation none
+```
+
+`--ablation none` matters here: in a comparison with the no-plugin baseline, checks on skill
+invocation are reported but not scored. An eval run loads only this plugin, so the listing
+budget described above never applies there. The tests cover the description and the hook
+together.
 
 ## License
 
